@@ -5,19 +5,20 @@ import CurrentWeather from '../screens/CurrentWeather'
 import UpcomingWeather from '../screens/Forecast'
 import City from '../screens/City'
 import { Feather } from '@expo/vector-icons'
+import CustomHeader from './customHeader'; // Import the custom header component
 
 const Tab = createBottomTabNavigator()
 
 const Tabs = ({ weather }) => {
-  console.log(weather)
+
   return (
         <Tab.Navigator
       screenOptions={{
         headerTitleAlign: 'center',
-        tabBarActiveTintColor: 'blue',
+        tabBarActiveTintColor: 'indianred',
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
-          backgroundColor: 'lightblue',
+          backgroundColor: 'white',
           borderTopWidth: 0, // Remove top border
         },
         headerTitleStyle: {
@@ -29,12 +30,14 @@ const Tabs = ({ weather }) => {
     >
       <Tab.Screen
         name={'Current'}
+
         options={{
+          header: () => <CustomHeader title="Current Weather" backgroundColor="white" />,
           tabBarIcon: ({ focused }) => (
             <Feather
               name={'droplet'}
               size={25}
-              color={focused ? 'blue' : 'black'}
+              color={focused ? 'indianred' : 'black'}
             />
           )
         }}
@@ -44,11 +47,12 @@ const Tabs = ({ weather }) => {
       <Tab.Screen
         name={'Forecast'}
         options={{
+          header: () => <CustomHeader title="Forecast" backgroundColor="white" />,
           tabBarIcon: ({ focused }) => (
             <Feather
               name={'clock'}
               size={25}
-              color={focused ? 'blue' : 'black'}
+              color={focused ? 'indianred' : 'black'}
             />
           )
         }}
@@ -58,11 +62,12 @@ const Tabs = ({ weather }) => {
       <Tab.Screen
         name={'City'}
         options={{
+          header: () => <CustomHeader title="City" backgroundColor="white" />,
           tabBarIcon: ({ focused }) => (
             <Feather
               name={'home'}
               size={25}
-              color={focused ? 'blue' : 'black'}
+              color={focused ? 'indianred' : 'black'}
             />
           )
         }}

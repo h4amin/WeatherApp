@@ -5,7 +5,7 @@ import { WEATHER_API_KEY } from '@env'
 // api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
 export const useGetWeather = () => {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   const [error,setError] = useState(null)
 
@@ -22,7 +22,7 @@ export const useGetWeather = () => {
       setWeather(data)
      }
     catch(err){
-      setError('Could not fetch weather')
+      setError('Could not obtain weather data')
     }
     finally{
       setLoading(false)
